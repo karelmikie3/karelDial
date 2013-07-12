@@ -186,7 +186,7 @@ loadGreylist()
 resetConfig()
 loadConfig()
 
-print("Karel Dial V"..version)
+print("Karel Dial V"..versionCode)
 
 fs.makeDir("KarelDialDir/temp")
 response = http.get("https://raw.github.com/karelmikie3/karelDial/master/updater")
