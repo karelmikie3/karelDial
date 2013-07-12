@@ -15,7 +15,7 @@ function glasses()
  tGlasses.clear()
  box1 = tGlasses.addBox(20, 10, 200, 65,0x48db18,0.7)
  box1.setZIndex(1)
- text1 = tGlasses.addText(26,13,"this is karelDial: "..version,0xFFFFF)
+ text1 = tGlasses.addText(26,13,"this is karelDial V: "..version,0xFFFFF)
  text1.setZIndex(2)
  text2 = tGlasses.addText(26,57,"type: $$commands for all commands",0xFFFFF)
  text2.setZIndex(2)
@@ -107,7 +107,7 @@ term.setCursorPos(1,1)
 term.clear()
 
 
-print("Karel Dial V1.0")
+print("Karel Dial V"..version)
 
 
 
@@ -115,6 +115,7 @@ if fs.exists("KarelDialDir") == false then
  configTGlasses = 'first'
  fs.makeDir("KarelDialDir")
  print("created directory 'KarelDialDir'")
+ fs.makeDir("KarelDialDir/temp")
 
  y = fs.open("KarelDialDir/greylist", "a")
  y.writeLine('{')
@@ -181,6 +182,11 @@ loadWhitelist()
 loadGreylist()
 resetConfig()
 loadConfig()
+
+reponse = http.get("https://raw.github.com/karelmikie3/karelDial/master/updater")
+
+updater = fs.open("KarelDialDir/updater", "w")
+updater.write(reponse.readAll())
 
 if configTG == nil or configRead.TGB == nil then
  write("do you wanna enable terminal glasses: ")
@@ -252,7 +258,7 @@ function func1()
   elseif input1 == "lock" then
    function lock()
     while true do
-   sleep(.5)
+	 sleep(.5)
 	 sg.disconnect()
 	end
    end
