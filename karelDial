@@ -113,6 +113,7 @@ term.clear()
 if fs.exists("KarelDialDir") == false then
  webV = http.get("https://raw.github.com/karelmikie3/karelDial/master/version")
  versionCode = webV.readLine()
+ print(versionCode)
  configTGlasses = 'first'
  fs.makeDir("KarelDialDir")
  print("created directory 'KarelDialDir'")
