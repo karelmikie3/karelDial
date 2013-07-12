@@ -1,9 +1,9 @@
--- variables new
+-- variables 
 local tArgs = {...}
 local configWL
 local configGL
 local configTG
-local version = "1.0"
+local versionCode
 
 -- functions
 
@@ -29,6 +29,7 @@ function resetConfig()
  config.writeLine('["stargate"] = '.."'"..configStargate.."',")
  config.writeLine('["terminalGlasses"] = '..tostring(configTG)..",")
  config.writeLine('["TGB"] = '.."'"..configTGlasses.."',")
+ config.writeLien('["version"] = '..tostring(version)..",")
  config.writeLine('}')
  config.close()
 end
@@ -112,6 +113,8 @@ print("Karel Dial V"..version)
 
 
 if fs.exists("KarelDialDir") == false then
+ webV = http.get("https://raw.github.com/karelmikie3/karelDial/master/version")
+ versionCode = webV.readLine()
  configTGlasses = 'first'
  fs.makeDir("KarelDialDir")
  print("created directory 'KarelDialDir'")
@@ -177,6 +180,7 @@ configGL = configRead.greylist
 configTG = configRead.terminalGlasses
 configStargate = configRead.stargate
 configTGlasses = configRead.TGB
+versionCode = configRead.version
 
 loadWhitelist()
 loadGreylist()
@@ -190,6 +194,15 @@ updater = fs.open("KarelDialDir/updater", "w")
 rResponse = response.readAll()
 updater.write(rResponse)
 updater.close()
+
+response2 = http.get("https://raw.github.com/karelmikie3/karelDial/master/version")
+
+versionNew = response2.readLine()
+
+if versionNew ~= version then
+ shell.run("KarelDialDir/updater")
+end
+
 
 if configTG == nil or configRead.TGB == nil then
  write("do you wanna enable terminal glasses: ")
