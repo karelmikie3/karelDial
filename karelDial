@@ -183,10 +183,12 @@ loadGreylist()
 resetConfig()
 loadConfig()
 
-reponse = http.get("https://raw.github.com/karelmikie3/karelDial/master/updater")
+response = http.get("https://raw.github.com/karelmikie3/karelDial/master/updater")
 
 updater = fs.open("KarelDialDir/updater", "w")
-updater.write(reponse.readAll())
+rResponse = response.readAll()
+updater.write(rResponse)
+updater.close()
 
 if configTG == nil or configRead.TGB == nil then
  write("do you wanna enable terminal glasses: ")
