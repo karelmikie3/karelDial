@@ -3,7 +3,7 @@ local tArgs = {...}
 local configWL
 local configGL
 local configTG
-local version = "0.9"
+local version = "1.0"
 
 -- functions
 print("Karel Dial V"..tostring(versionCode))
@@ -197,13 +197,10 @@ response2 = http.get("https://raw.github.com/karelmikie3/karelDial/master/versio
 versionNew = response2.readLine()
 
 if versionNew ~= version then
- function update1()
-  shell.getRunningProgram()
- end
- function update2()
-  shell.run("KarelDialDir/updater")
- end
- parallel.waitForAll(update1, update2)
+shell.run("KarelDialDir/updater")
+break
+break
+return
 end
 
 
