@@ -3,10 +3,10 @@ local tArgs = {...}
 local configWL
 local configGL
 local configTG
-local versionCode
+local versionCode == "1.0"
 
 -- functions
-
+print("Karel Dial V"..tostring(versionCode))
 function isInit()
  return sg.isInitiator() == "true"
 end
@@ -29,7 +29,6 @@ function resetConfig()
  config.writeLine('["stargate"] = '.."'"..configStargate.."',")
  config.writeLine('["terminalGlasses"] = '..tostring(configTG)..",")
  config.writeLine('["TGB"] = '.."'"..configTGlasses.."',")
- config.writeLine('["version"] = '..tostring(versionCode)..",")
  config.writeLine('}')
  config.close()
 end
@@ -178,15 +177,12 @@ configGL = configRead.greylist
 configTG = configRead.terminalGlasses
 configStargate = configRead.stargate
 configTGlasses = configRead.TGB
-versionCode = configRead.version
 
 
 loadWhitelist()
 loadGreylist()
 resetConfig()
 loadConfig()
-
-print("Karel Dial V"..versionCode)
 
 fs.makeDir("KarelDialDir/temp")
 response = http.get("https://raw.github.com/karelmikie3/karelDial/master/updater")
