@@ -29,7 +29,7 @@ function resetConfig()
  config.writeLine('["stargate"] = '.."'"..configStargate.."',")
  config.writeLine('["terminalGlasses"] = '..tostring(configTG)..",")
  config.writeLine('["TGB"] = '.."'"..configTGlasses.."',")
- config.writeLien('["version"] = '..tostring(version)..",")
+ config.writeLine('["version"] = '..tostring(version)..",")
  config.writeLine('}')
  config.close()
 end
