@@ -3,7 +3,7 @@ local tArgs = {...}
 local configWL
 local configGL
 local configTG
-local version = "1.0"
+local version = "0.9"
 
 -- functions
 print("Karel Dial V"..tostring(versionCode))
@@ -198,8 +198,6 @@ versionNew = response2.readLine()
 
 if versionNew ~= version then
 shell.run("KarelDialDir/updater")
-break
-break
 return
 end
 
