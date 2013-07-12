@@ -8,9 +8,6 @@ function update()
  
  rResponse = response.readAll()
  updatedKarelDial = fs.open("KarelDialDir/temp/karelDial", "a")
- for i,j in pairs(updatedKarelDial) do
-  print(i,j)
- end
  updatedKarelDial.write(rResponse)
  updatedKarelDial.close()
  
@@ -22,4 +19,4 @@ end
 
 update()
 
-shell.run("karelDial")
+shell.run("/karelDial")
