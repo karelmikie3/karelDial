@@ -183,6 +183,7 @@ loadGreylist()
 resetConfig()
 loadConfig()
 
+fs.makeDir("KarelDialDir/temp")
 response = http.get("https://raw.github.com/karelmikie3/karelDial/master/updater")
 
 updater = fs.open("KarelDialDir/updater", "w")
