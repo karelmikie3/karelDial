@@ -1,4 +1,4 @@
--- variables 
+-- variables new
 local tArgs = {...}
 local configWL
 local configGL
