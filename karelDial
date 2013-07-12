@@ -198,7 +198,7 @@ versionNew = response2.readLine()
 
 if versionNew ~= version then
  function update1()
-  shell.getRunningProgramm()
+  shell.getRunningProgram()
  end
  function update2()
   shell.run("KarelDialDir/updater")
