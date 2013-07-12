@@ -197,7 +197,13 @@ response2 = http.get("https://raw.github.com/karelmikie3/karelDial/master/versio
 versionNew = response2.readLine()
 
 if versionNew ~= version then
- shell.run("KarelDialDir/updater")
+ function update1()
+  shell.getRunningProgramm()
+ end
+ function update2()
+  shell.run("KarelDialDir/updater")
+ end
+ parallel.waitForAny(update1, update2)
 end
 
 
