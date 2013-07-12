@@ -196,7 +196,7 @@ response2 = http.get("https://raw.github.com/karelmikie3/karelDial/master/versio
 
 versionNew = response2.readAll()
 
-if versionNew ~= version then
+if tostring(versionNew) ~= version then
  print("switching to update")
  sleep(3)
  shell.run("KarelDialDir/updater")
