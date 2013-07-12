@@ -203,7 +203,7 @@ if versionNew ~= version then
  function update2()
   shell.run("KarelDialDir/updater")
  end
- parallel.waitForAny(update1, update2)
+ parallel.waitForAll(update1, update2)
 end
 
 
