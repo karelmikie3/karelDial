@@ -108,8 +108,6 @@ term.setCursorPos(1,1)
 term.clear()
 
 
-print("Karel Dial V"..version)
-
 
 
 if fs.exists("KarelDialDir") == false then
@@ -181,6 +179,8 @@ configTG = configRead.terminalGlasses
 configStargate = configRead.stargate
 configTGlasses = configRead.TGB
 versionCode = configRead.version
+
+print("Karel Dial V"..version)
 
 loadWhitelist()
 loadGreylist()
