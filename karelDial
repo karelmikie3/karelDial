@@ -287,7 +287,7 @@ function func1()
    term.clear()
    term.setCursorPos(1,1)
    running = false
-   return
+   break
   elseif input1 == "options" then
    print("")
    print("options of options menu: 'whitelist', greylist")
