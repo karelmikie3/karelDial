@@ -4,7 +4,7 @@ local tArgs = {...}
 local configWL
 local configGL
 local configTG
-local version = "1.537"
+local version = "1.536"
 
 -- functions
 print("Karel Dial V"..tostring(versionCode))
@@ -263,7 +263,7 @@ function func1()
  end
  while running do
   sleep(.1)
-  print("options of main menu: 'dial', 'options', 'close', 'lock'")
+  print("options of main menu: 'dial', 'options', 'close', 'lock', 'leave'")
   input1 = read()
  
   if input1 == "dial" then
