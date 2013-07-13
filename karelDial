@@ -4,7 +4,7 @@ local tArgs = {...}
 local configWL
 local configGL
 local configTG
-local version = "1.536"
+local version = "1.537"
 
 -- functions
 print("Karel Dial V"..tostring(versionCode))
@@ -261,7 +261,7 @@ function func1()
   print("press a key to allow the computer and the portal")
   startLock()
  end
- while true do
+ while running do
   sleep(.1)
   print("options of main menu: 'dial', 'options', 'close', 'lock'")
   input1 = read()
@@ -274,7 +274,7 @@ function func1()
    sg.disconnect()
   elseif input1 == "lock" then
    function lock()
-    while true do
+    while running do
 	 sleep(.5)
 	 sg.disconnect()
 	end
@@ -322,7 +322,7 @@ end
 if configRead.whitelist or configRead.greylist then
  function func2()
   if configRead.whitelist then
-   while true do
+   while running do
     sleep(.6)
     if sg.getDialledAddress() ~= "" then
      allowed = false
@@ -337,7 +337,7 @@ if configRead.whitelist or configRead.greylist then
     end
    end
   elseif configRead.greylist then
-   while true do
+   while running do
     sleep(.6)
     if sg.getDialledAddress() ~= "" then
      notAllowed = true
@@ -365,7 +365,7 @@ else
 end
 
 function func2Use()
- while true do
+ while running do
   sleep(.1)
   func2()
  end
@@ -374,7 +374,7 @@ end
 if configRead.terminalGlasses then
  function func3()
   glasses()
-  while true do
+  while running do
    sleep(.1)
    event, msg, player = os.pullEvent("chat_command")
    local argsChat = {}
@@ -407,14 +407,14 @@ function func4()
 end
 
 function funcpar1()
- while true do
+ while running do
  parallel.waitForAny(func1, func2)
  sleep(.6)
  end
 end
 
 function funcpar2()
- while true do
+ while running do
  parallel.waitForAny(func3, func4)
  sleep(.6)
  end
