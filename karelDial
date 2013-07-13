@@ -1,9 +1,10 @@
 -- variables 
+local running = true
 local tArgs = {...}
 local configWL
 local configGL
 local configTG
-local version = "1.534"
+local version = "1.535"
 
 -- functions
 print("Karel Dial V"..tostring(versionCode))
@@ -285,7 +286,8 @@ function func1()
   elseif input1 == "leave" then
    term.clear()
    term.setCursorPos(1,1)
-   break
+   running = false
+   return
   elseif input1 == "options" then
    print("")
    print("options of options menu: 'whitelist', greylist")
@@ -418,7 +420,7 @@ function funcpar2()
  end
 end
 
-while true do
+while running do
  sleep(.1)
  parallel.waitForAny(funcpar1, funcpar2)
 end
