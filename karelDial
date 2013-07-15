@@ -4,7 +4,7 @@ local tArgs = {...}
 local configWL
 local configGL
 local configTG
-local version = "1.538"
+local version = "1.539"
 
 -- functions
 print("Karel Dial V"..tostring(versionCode))
@@ -267,9 +267,12 @@ function func1()
   input1 = read()
  
   if input1 == "dial" then
-   write("enter an adress to dial: ")
-   dialAdress = read()
-   sg.connect(dialAdress)
+   write("enter an address to dial: ")
+   dialAddress = string.upper(read())
+   return1, errorP = pcall(sg.connect,dialAddress)
+   if return1 == false then
+    print(errorP)
+   end
   elseif input1 == "close" then
    sg.disconnect()
   elseif input1 == "lock" then
@@ -388,7 +391,14 @@ if configRead.terminalGlasses then
 	sleep(3)
 	text3.delete()
    elseif argsChat[1] == "dial" then
-    sg.connect(string.upper(tostring(argsChat[2])))
+    termAddress = string.upper(tostring(argsChat[2]))
+    return1,errorP = pcall(sg.connect,termAddress)
+    if return1 == false then
+     text3 = tGlasses.addText(26,57,"ERROR: "..errorP,0xFF0600)
+	 text3.setScale(3)
+     text3.setZIndex(2)
+	 text3.delete()
+    end
    elseif argsChat[1] == "disconnect" then
     sg.disconnect()
    end
