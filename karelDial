@@ -4,7 +4,7 @@ local tArgs = {...}
 local configWL
 local configGL
 local configTG
-local version = "1.539"
+local version = "1.540"
 
 -- functions
 print("Karel Dial V"..tostring(versionCode))
@@ -394,9 +394,10 @@ if configRead.terminalGlasses then
     termAddress = string.upper(tostring(argsChat[2]))
     return1,errorP = pcall(sg.connect,termAddress)
     if return1 == false then
-     text3 = tGlasses.addText(26,57,"ERROR: "..errorP,0xFF0600)
+     text3 = tGlasses.addText(26,33,"ERROR: "..errorP,0xFF0600)
 	 text3.setScale(3)
      text3.setZIndex(2)
+	 sleep(3)
 	 text3.delete()
     end
    elseif argsChat[1] == "disconnect" then
