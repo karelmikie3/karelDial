@@ -395,7 +395,7 @@ if configRead.terminalGlasses then
     return1,errorP = pcall(sg.connect,termAddress)
     if return1 == false then
      text3 = tGlasses.addText(26,33,"ERROR: "..errorP,0xFF0600)
-	 text3.setScale(1.5)
+	 text3.setScale(1)
      text3.setZIndex(2)
 	 sleep(3)
 	 text3.delete()
