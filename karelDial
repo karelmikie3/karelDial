@@ -386,7 +386,7 @@ if configRead.terminalGlasses then
    end
    
    if argsChat[1] == "commands" then
-    text3 = tGlasses.addText(30,24,"commands: dial, disconnect",0x4000A3)
+    text3 = tGlasses.addText(30,24,"commands: dial, disconnect, hide, show",0x4000A3)
 	text3.setZIndex(2)
 	sleep(3)
 	text3.delete()
@@ -404,6 +404,8 @@ if configRead.terminalGlasses then
     sg.disconnect()
    elseif argsChat[1] == "hide" then
     tGlasses.clear()
+   elseif argsChat[1] == "show" then
+    glasses()
    end
   end
  end 
