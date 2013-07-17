@@ -402,6 +402,8 @@ if configRead.terminalGlasses then
     end
    elseif argsChat[1] == "disconnect" then
     sg.disconnect()
+   elseif argsChat[1] == "hide" then
+    tGlasses.clear()
    end
   end
  end 
