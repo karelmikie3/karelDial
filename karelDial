@@ -4,7 +4,7 @@ local tArgs = {...}
 local configWL
 local configGL
 local configTG
-local version = "1.540"
+local version = "beta 1.542"
 
 -- functions
 print("Karel Dial V"..tostring(versionCode))
