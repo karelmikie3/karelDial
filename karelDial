@@ -118,21 +118,21 @@ if fs.exists("KarelDialDir") == false then
  print("created directory 'KarelDialDir'")
  fs.makeDir("KarelDialDir/temp")
 
- y = fs.open("KarelDialDir/greylist", "a")
+ y = fs.open("KarelDialDir/greylist", "w")
  y.writeLine('{')
  y.writeLine('}')
  print("created greylist")
  y.close()
  configGL = false
  
- z = fs.open("KarelDialDir/whitelist", "a")
+ z = fs.open("KarelDialDir/whitelist", "w")
  z.writeLine('{')
  z.writeLine('}')
  z.close()
  configWL = false
  print("created whitelist")
  
- t = fs.open("KarelDialDir/config", "a")
+ t = fs.open("KarelDialDir/config", "w")
  t.close()
  print("created config")
  print("enter the side or name from the stargate: ")
@@ -146,7 +146,7 @@ if fs.exists("KarelDialDir") == false then
  print("loaded directory")
 
  if fs.exists("KarelDialDir/greylist") == false then
-  y = fs.open("KarelDialDir/greylist", "a")
+  y = fs.open("KarelDialDir/greylist", "w")
   y.writeLine('{')
   y.writeLine('}')
   print("created greylist")
@@ -154,7 +154,7 @@ if fs.exists("KarelDialDir") == false then
   configGL = false
  end
  if fs.exists("KarelDialDir/whitelist") == false then
-  z = fs.open("KarelDialDir/whitelist", "a")
+  z = fs.open("KarelDialDir/whitelist", "w")
   z.writeLine('{')
   z.writeLine('}')
   print("created whitelist")
@@ -163,7 +163,7 @@ if fs.exists("KarelDialDir") == false then
  end
  if fs.exists("KarelDialDir/config") == false then
   configTGlasses = 'first'
-  t = fs.open("KarelDialDir/config", "a")
+  t = fs.open("KarelDialDir/config", "w")
   t.close()
   resetConfig()
   print("created config")
