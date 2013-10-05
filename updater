@@ -7,7 +7,7 @@ function update()
  response = http.get("https://raw.github.com/karelmikie3/karelDial/master/karelDial")
  
  rResponse = response.readAll()
- updatedKarelDial = fs.open("KarelDialDir/temp/karelDial", "a")
+ updatedKarelDial = fs.open("KarelDialDir/temp/karelDial", "w")
  updatedKarelDial.write(rResponse)
  updatedKarelDial.close()
  
